@@ -145,7 +145,7 @@ class MyArrayPlus : public MyArray{
 public:
 	bool has(int x){
 		for(int i = 0; i<size; ++i)
-			if(arr[i] = x)
+			if(arr[i] == x)
 				return true;
 		return false;
 	}
@@ -153,17 +153,18 @@ public:
 	void sort(){
 		for(int j = 1; j < size; ++j){
 			int x = arr[j];
+			std::cout << "x = " << x << '\n';
 			int i;
-			for(i = j; i > 0; --j){
+			for(i = j; i > 0; --i){
+				std::cout << *this << " " << i << '\n';
 				if(arr[i-1] > x)
 					arr[i] = arr[i-1];
 				else
 					break;
-			arr[i] = x;
-			std::cout << *this << '\n';
 			}
-			
+			arr[i] = x;
 		}
+		std::cout << "sorted "<< *this << '\n';
 	}
 };
 
@@ -255,7 +256,7 @@ int main(){
 			case 'f':
 				cout << "has ?= ";
 				cin >> x;
-				cout << myarray.has(x);
+				cout << ((myarray.has(x)) ? "true\n" : "flase\n");
 				break;
 			case 'i':
 				cout << "arr[?] ";
